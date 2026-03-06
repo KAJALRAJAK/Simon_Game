@@ -50,7 +50,7 @@ function checkAns(idx) {
       setTimeout(levelUp, 1000);
     }
   } else {
-    h2.innerHTML = `Game Over! Your score was <b>${level}</b><br> Press any ley to start.`;
+    h2.innerHTML = `Game Over! Your score was <b>${level}</b><br> Press any key to start.`;
     document.querySelector("body").style.backgroundColor="red";
     setTimeout(function(){
       document.querySelector("body").style.backgroundColor="white";
@@ -60,10 +60,12 @@ function checkAns(idx) {
 }
 
 function btnPress() {
+  if (!started) return;   // ignore clicks before game starts
+  
   let btn = this;
   userFlash(btn);
 
-  userColor = btn.getAttribute("id");
+  let userColor = btn.getAttribute("id");
   userSeq.push(userColor);
 
   checkAns(userSeq.length - 1);
