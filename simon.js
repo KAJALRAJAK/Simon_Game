@@ -8,8 +8,8 @@ let level = 0;
 
 let h2 = document.querySelector("h2");
 
-document.addEventListener("keypress", function () {
-  if (started == false) {
+document.addEventListener("keydown", function () {
+  if (!started) {
     console.log("game is started");
     started = true;
 
